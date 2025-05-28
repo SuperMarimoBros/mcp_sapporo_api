@@ -1,0 +1,19 @@
+[project]
+name = "mcp-sapporo-api"
+version = "0.1.0"
+description = "札幌市オープンデータと連携するMCPサーバー"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "httpx>=0.28.1",
+    "ipykernel>=6.29.5",
+    "jupyter>=1.1.1",
+    "matplotlib>=3.10.3",
+    "mcp[cli]>=1.7.0",
+    "plotly>=6.1.1",
+    "requests>=2.32.3",
+    "seaborn>=0.13.2",
+    "uvicorn>=0.34.2",
+    "python-dotenv>=1.0.0",
+    "japanize-matplotlib>=1.1.3",
+]
