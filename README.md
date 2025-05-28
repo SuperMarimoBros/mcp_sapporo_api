@@ -84,6 +84,13 @@ open ~/Library/Application\ Support/Claude/claude_desktop_config.json
 
 設定ファイルには、以下をコピペしてください（user_name, pathは適切に変更してください）：
 
+"<path>/mcp_sapporo_api"の部分は、mcp_sapporo_apiの絶対パスとなります。
+
+```bash
+# pwdを実行すると、現在の絶対パスが取得できる
+pwd
+```
+
 ```json
 {
   "mcpServers": {
