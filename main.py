@@ -167,7 +167,7 @@ async def get_ward_statistics() -> dict:
 
 # --- エンドポイント④: 業種別統計を取得 ---
 @mcp.tool()
-async def get_business_type_statistics() -> dict:
+async def get_business_type_statistics(limit: int = 5000) -> dict:
     """
     札幌市の食品営業許可施設の業種別統計情報を取得します。
     
@@ -178,13 +178,16 @@ async def get_business_type_statistics() -> dict:
     - Most common business types (主要業種ランキング)
     - Geographic distribution by business type
     - Business diversity metrics
+
+    Args:
+        limit (int): Number of records to retrieve for analysis. Default is 5000, maximum recommended is 10000.
     
     Returns:
         dict: Statistics organized by business type with facility counts and geographic distribution.
               Useful for market analysis and understanding business landscape.
     """
     # 大量データを取得して集計
-    params = {"resource_id": RESOURCE_ID, "limit": 5000}
+    params = {"resource_id": RESOURCE_ID, "limit": limit}
     async with httpx.AsyncClient() as client:
         resp = await client.get(f"{CKAN_BASE}/datastore_search", params=params)
         resp.raise_for_status()
@@ -234,7 +237,7 @@ async def get_business_type_statistics() -> dict:
 
 # --- エンドポイント⑤: 特定の区の詳細情報を取得 ---
 @mcp.tool()
-async def get_ward_details(ward_name: str) -> dict:
+async def get_ward_details(ward_name: str, limit: int = 1000) -> dict:
     """
     指定した区の食品営業許可施設の詳細情報を取得します。
     
@@ -243,6 +246,7 @@ async def get_ward_details(ward_name: str) -> dict:
     Args:
         ward_name (str): Name of the ward to analyze. 
                         Valid wards: "中央区", "北区", "東区", "白石区", "豊平区", "南区", "西区", "厚別区", "手稲区", "清田区"
+        limit (int): Number of records to retrieve. Default is 1000, maximum recommended is 5000.
     
     Returns:
         dict: Detailed analysis of the specified ward including:
@@ -251,7 +255,7 @@ async def get_ward_details(ward_name: str) -> dict:
               - Recent licensing trends
               - Facility listings
     """
-    params = {"resource_id": RESOURCE_ID, "q": ward_name, "limit": 1000}
+    params = {"resource_id": RESOURCE_ID, "q": ward_name, "limit": limit}
     async with httpx.AsyncClient() as client:
         resp = await client.get(f"{CKAN_BASE}/datastore_search", params=params)
         resp.raise_for_status()
