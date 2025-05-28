@@ -14,10 +14,10 @@ NOTE:このレポジトリは、https://github.com/tyukei/mcp_okinawa_api を参
 
 ## アーキテクチャ
 ```
-┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
-│   AI Assistant  │    │   MCP Server    │    │ Sapporo OpenData│
+┌─────────────────┐    ┌──────────────---───┐    ┌─────────────────┐
+│   AI Assistant  │    │   MCP Server       │    │ Sapporo OpenData│
 │    (Claude)     │◄──►│(SapporoFoodLicense)│◄──►│   Food License  │
-└─────────────────┘    └─────────────────┘    └─────────────────┘
+└─────────────────┘    └─────────────────---┘    └─────────────────┘
 ```
 
 ## 主要機能
