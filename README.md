@@ -1,5 +1,7 @@
 # 札幌市食品営業許可施設データ専用MCPサーバー
 
+NOTE:このレポジトリは、https://github.com/tyukei/mcp_okinawa_api を参考に作成しました。
+
 札幌市の食品営業許可施設データに特化したModel Context Protocol (MCP) サーバーです。
 
 ## 概要
